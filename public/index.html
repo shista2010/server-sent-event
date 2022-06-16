@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Sent Event</title>
+</head>
+<body>
+    <div class="event-data"></div>
+</body>
+
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+    // EventSource object of javascript listens the streaming events from our go server and prints the message.
+    var stream = new EventSource("/stream");
+    stream.addEventListener("message", function(e){
+        $('.event-data').append(e.data + "</br>")
+    });
+</script>
+
+</html>
+
+
+
+<!-- <!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Server Sent Event</title>
+</head>
+
+<body>
+<div class="event-data"></div>
+</body>
+
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+    // EventSource object of javascript listens the streaming events from our go server and prints the message.
+    var stream = new EventSource("/stream");
+    stream.addEventListener("message", function(e){
+        $('.event-data').append(e.data + "</br>")
+    });
+</script>
+
+</html> -->
